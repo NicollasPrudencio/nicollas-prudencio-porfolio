@@ -1,43 +1,61 @@
 "use client";
 
 import { useState } from "react";
-import Container from "../atoms/Container-hamburguer";
-import Line from "../atoms/Line-hamburguer";
+import Line from "../atoms/Line-hamburguer"; // Certifique-se de que o caminho está correto
 
 const HamburguerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const defaultThickness = 1
+  const defaultSpacing = 10;
+  const defaultWidth = 30;
+
   return (
-    <Container onClick={toggleMenu}> {/* Agora o onClick é aceito */}
-      {/* Linha superior com rotação */}
+    <div
+      className="flex flex-col justify-center items-center w-12 h-12 cursor-pointer"
+      onClick={toggleMenu}
+    >
+      {/* Linha superior */}
       <div
-        className={`transform transition-transform duration-300 ${
-          isOpen ? "rotate-45 translate-y-2.5" : ""
+        className={`w-10 h-[2px] mb-[4px] transform transition-all duration-300 origin-center ${
+          isOpen ? "rotate-45 translate-y-[5px]" : ""
         }`}
       >
-        <Line />
+        <Line 
+          thickness={defaultThickness ?? undefined}
+          spacing={defaultSpacing ?? undefined}
+          width={defaultWidth ?? undefined}
+          />
       </div>
 
-      {/* Linha do meio com opacidade */}
+      {/* Linha do meio */}
       <div
-        className={`transition-opacity duration-300 ${
+        className={`w-10 h-[2px] mb-[4px] transform transition-all duration-300 ${
           isOpen ? "opacity-0" : "opacity-100"
         }`}
       >
-        <Line />
+        <Line 
+          thickness={defaultThickness ?? undefined}
+          spacing={defaultSpacing ?? undefined}
+          width={defaultWidth ?? undefined}
+          />
       </div>
 
-      {/* Linha inferior com rotação */}
+      {/* Linha inferior */}
       <div
-        className={`transform transition-transform duration-300 ${
-          isOpen ? "-rotate-45 -translate-y-2.5" : ""
+        className={`w-10 h-[2px] transform transition-all duration-300 origin-center ${
+          isOpen ? "-rotate-45 -translate-y-[5px]" : ""
         }`}
       >
-        <Line />
+        <Line 
+          thickness={defaultThickness ?? undefined}
+          spacing={defaultSpacing ?? undefined}
+          width={defaultWidth ?? undefined}
+          />
       </div>
-    </Container>
+    </div>
   );
 };
 
