@@ -7,7 +7,7 @@ const dancing_script = Dancing_Script({
 });
 
 const LogoText = () => (
-  <h1 className={`${dancing_script.className} text-3xl`}>Vinícius</h1>
+  <h1 className={`${dancing_script.className} text-3xl`}>Nicollas</h1>
 );
 
 export default LogoText;
